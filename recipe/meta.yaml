@@ -1,5 +1,4 @@
-{% set version = '1.4.2' %}
-
+{% set version = '1.4.6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,31 +7,32 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: splitstackshape_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/splitstackshape_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/splitstackshape/splitstackshape_{{ version }}.tar.gz
-  sha256: afeabcae2a29cedbfd3a53d48233ab2fedbefc3e08ff36a4049e5d005d563355
+    - {{ cran_mirror }}/src/contrib/splitstackshape_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/splitstackshape/splitstackshape_{{ version }}.tar.gz
+  sha256: b9888f9508babdb8e09f57674facaa8b158a06255ef1e61c8df813f58881860f
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 1001
-
   rpaths:
     - lib/R/lib/
     - lib/
+
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-data.table >=1.9.4
-
   run:
     - r-base
     - r-data.table >=1.9.4
 
 test:
   commands:
-    - $R -e "library('splitstackshape')"  # [not win]
+    - $R -e "library('splitstackshape')"           # [not win]
     - "\"%R%\" -e \"library('splitstackshape')\""  # [win]
 
 about:
@@ -40,15 +40,35 @@ about:
   license: GPL-3
   summary: Online data collection tools like Google Forms often export multiple-response questions
     with data concatenated in cells. The concat.split (cSplit) family of functions splits
-    such data into  separate cells. The package also includes functions to stack groups  of
-    columns and to reshape wide data, even when the data are  "unbalanced"---something
-    which reshape (from base R) does not handle,  and which melt and dcast from reshape2
-    do not easily handle.
+    such data into separate  cells. The package also includes functions to stack groups
+    of columns and  to reshape wide data, even when the data are "unbalanced"---something  which
+    reshape (from base R) does not handle, and which melt and dcast from  reshape2 do
+    not easily handle.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
-    - dpryan79
-    - johanneskoester
-    - bgruening
-    - daler
+    - conda-forge/r
+
+# Package: splitstackshape
+# Type: Package
+# Title: Stack and Reshape Datasets After Splitting Concatenated Values
+# Version: 1.4.6
+# Date: 2018-07-22
+# Author: Ananda Mahto
+# Maintainer: Ananda Mahto <mrdwab@gmail.com>
+# Description: Online data collection tools like Google Forms often export multiple-response questions with data concatenated in cells. The concat.split (cSplit) family of functions splits such data into separate  cells. The package also includes functions to stack groups of columns and  to reshape wide data, even when the data are "unbalanced"---something  which reshape (from base R) does not handle, and which melt and dcast from  reshape2 do not easily handle.
+# License: GPL-3
+# LazyData: TRUE
+# LazyLoad: yes
+# Depends: R (>= 2.10)
+# Imports: data.table (>= 1.9.4)
+# URL: http://github.com/mrdwab/splitstackshape
+# BugReports: http://github.com/mrdwab/splitstackshape/issues
+# RoxygenNote: 6.0.1
+# Suggests: covr, testthat
+# NeedsCompilation: no
+# Packaged: 2018-07-22 18:44:55 UTC; mrdwab
+# Repository: CRAN
+# Date/Publication: 2018-07-23 07:30:06 UTC
