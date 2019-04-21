@@ -1,4 +1,4 @@
-{% set version = '1.4.6' %}
+{% set version = "1.4.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/splitstackshape_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/splitstackshape/splitstackshape_{{ version }}.tar.gz
-  sha256: b9888f9508babdb8e09f57674facaa8b158a06255ef1e61c8df813f58881860f
+  sha256: 656032c3f1e3dd5b8a3ee19ffcae617e07104c0e342fc3da4d863637a770fe56
 
 build:
   merge_build_host: True  # [win]
