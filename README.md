@@ -5,11 +5,9 @@ Home: http://github.com/mrdwab/splitstackshape
 
 Package license: GPL-3
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-splitstackshape-feedstock/blob/master/LICENSE.txt)
 
 Summary: Online data collection tools like Google Forms often export multiple-response questions with data concatenated in cells. The concat.split (cSplit) family of functions splits such data into separate  cells. The package also includes functions to stack groups of columns and  to reshape wide data, even when the data are "unbalanced"---something  which reshape (from base R) does not handle, and which melt and dcast from  reshape2 do not easily handle.
-
-
 
 Current build status
 ====================
@@ -38,6 +36,7 @@ Installing `r-splitstackshape` from the `conda-forge` channel can be achieved by
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `r-splitstackshape` can be installed with:
@@ -108,9 +107,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
