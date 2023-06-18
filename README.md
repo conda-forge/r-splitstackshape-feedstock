@@ -1,11 +1,11 @@
-About r-splitstackshape
-=======================
+About r-splitstackshape-feedstock
+=================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-splitstackshape-feedstock/blob/main/LICENSE.txt)
 
 Home: http://github.com/mrdwab/splitstackshape
 
 Package license: GPL-3
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-splitstackshape-feedstock/blob/main/LICENSE.txt)
 
 Summary: Online data collection tools like Google Forms often export multiple-response questions with data concatenated in cells. The concat.split (cSplit) family of functions splits such data into separate  cells. The package also includes functions to stack groups of columns and  to reshape wide data, even when the data are "unbalanced"---something  which reshape (from base R) does not handle, and which melt and dcast from  reshape2 do not easily handle.
 
