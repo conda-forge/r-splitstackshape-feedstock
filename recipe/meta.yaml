@@ -1,4 +1,4 @@
-{% set version = "1.4.8" %}
+{% set version = "1.4.8.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/splitstackshape_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/splitstackshape/splitstackshape_{{ version }}.tar.gz
-  sha256: 656032c3f1e3dd5b8a3ee19ffcae617e07104c0e342fc3da4d863637a770fe56
+  sha256: e5755c8fc413c1de632107046e0830606229c97c3ad1b68f49bb8957a127f3e8
 
 build:
-  number: 6
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -36,12 +36,8 @@ test:
 about:
   home: http://github.com/mrdwab/splitstackshape
   license: GPL-3
-  summary: Online data collection tools like Google Forms often export multiple-response questions
-    with data concatenated in cells. The concat.split (cSplit) family of functions splits
-    such data into separate  cells. The package also includes functions to stack groups
-    of columns and  to reshape wide data, even when the data are "unbalanced"---something  which
-    reshape (from base R) does not handle, and which melt and dcast from  reshape2 do
-    not easily handle.
+  summary: Online data collection tools like Google Forms often export multiple-response questions with data concatenated in cells. The concat.split (cSplit) family of functions splits such data into separate  cells. The package also includes functions to stack groups of columns and  to reshape wide data, even when the
+    data are "unbalanced"---something  which reshape (from base R) does not handle, and which melt and dcast from  reshape2 do not easily handle.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
